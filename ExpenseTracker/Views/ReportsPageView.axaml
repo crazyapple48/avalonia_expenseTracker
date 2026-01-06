@@ -3,12 +3,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="ExpenseTracker.Views.ReportsPageView">
+             mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="765"
+             x:Class="ExpenseTracker.Views.ReportsPageView"
+             x:DataType="vm:ReportsPageViewModel"
+             >
     
     <Design.DataContext>
         <vm:ReportsPageViewModel/>
     </Design.DataContext>
     
-    Welcome to Reports Page!
+    <TextBlock Text="{Binding ReportsMessage}"></TextBlock>
 </UserControl>

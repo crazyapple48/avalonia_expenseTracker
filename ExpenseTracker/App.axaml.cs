@@ -4,8 +4,10 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
+using ExpenseTracker.Bootstrap;
 using ExpenseTracker.ViewModels;
 using ExpenseTracker.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ExpenseTracker;
 
@@ -18,6 +20,13 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        var collection = new ServiceCollection();
+        
+        // Inject common services
+        Bootstrapper.RegisterCommonServices(collection);
+        
+        var services = collection.BuildServiceProvider();
+        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
@@ -25,14 +34,14 @@ public partial class App : Application
             DisableAvaloniaDataAnnotationValidation();
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel()
+                DataContext = services.GetRequiredService<MainViewModel>()
             };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
             singleViewPlatform.MainView = new MainView
             {
-                DataContext = new MainViewModel()
+                DataContext = services.GetRequiredService<MainViewModel>()
             };
         }
 
