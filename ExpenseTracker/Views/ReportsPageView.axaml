@@ -12,5 +12,9 @@
         <vm:ReportsPageViewModel/>
     </Design.DataContext>
     
+    <StackPanel>
+        
     <TextBlock Text="{Binding ReportsMessage}"></TextBlock>
+    <Button Content="Baby"></Button>
+    </StackPanel>
 </UserControl>

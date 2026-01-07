@@ -7,26 +7,25 @@
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="915"
              x:Class="ExpenseTracker.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <vm:MainViewModel />
-  </Design.DataContext>
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
 
-  <DockPanel Background="{DynamicResource PrimaryForeground}">
-      <Border Background="{DynamicResource PrimaryBackground}" DockPanel.Dock="Top" Height="75">
-          <TextBlock Text="Expense Tracker" 
-                     HorizontalAlignment="Center" 
-                     VerticalAlignment="Center" FontSize="24" 
-                     Foreground="{DynamicResource PrimaryForeground}"/>
-      </Border>
-      <Grid 
-          ColumnDefinitions="*, Auto, *, Auto, *"
-          Background="{DynamicResource SecondaryBackground}" 
-          DockPanel.Dock="Bottom" Height="75"
-          >
-          <Button Grid.Column="1" Content="Home" Command="{Binding GoToHomeCommand}"></Button>
-          <Button Grid.Column="3" Content="Reports" Command="{Binding GoToReportsCommand}"></Button>
-      </Grid>
-      <ContentControl Content="{Binding CurrentPage}"/>
-  </DockPanel>
+    <DockPanel Background="{DynamicResource PrimaryForeground}">
+        <Border Background="{DynamicResource PrimaryBackground}" DockPanel.Dock="Top" Height="75">
+            <TextBlock Text="Expense Tracker"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontSize="24"
+                       Foreground="{DynamicResource PrimaryForeground}" />
+        </Border>
+        <Grid
+            ColumnDefinitions="*, Auto, *, Auto, *"
+            Background="{DynamicResource SecondaryBackground}"
+            DockPanel.Dock="Bottom" Height="75">
+            <IconButton Grid.Column="1" Classes="icon" IconText="&#xe2c2;" Content="Home"
+                        Command="{Binding GoToHomeCommand}" />
+            <IconButton Grid.Column="3" IconText="&#xe260;" Content="Reports" Command="{Binding GoToReportsCommand}" />
+        </Grid>
+        <ContentControl Content="{Binding CurrentPage}" />
+    </DockPanel>
 </UserControl>
-

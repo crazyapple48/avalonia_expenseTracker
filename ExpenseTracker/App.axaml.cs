@@ -4,10 +4,13 @@ using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using System.Linq;
 using Avalonia.Markup.Xaml;
+using Avalonia.Metadata;
 using ExpenseTracker.Bootstrap;
 using ExpenseTracker.ViewModels;
 using ExpenseTracker.Views;
 using Microsoft.Extensions.DependencyInjection;
+
+[assembly: XmlnsDefinition("https://github.com/avaloniaui", "ExpenseTracker.Controls")]
 
 namespace ExpenseTracker;
 

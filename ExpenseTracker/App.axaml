@@ -3,21 +3,40 @@
              xmlns:local="using:ExpenseTracker"
              x:Class="ExpenseTracker.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source="Styles/AppDefaultStyles.axaml"></StyleInclude>
+        <StyleInclude Source="Styles/General.axaml"></StyleInclude>
     </Application.Styles>
-             
-             <Application.Resources>
-                 <SolidColorBrush x:Key="PrimaryForeground">#FAEEEB</SolidColorBrush>
-                 <SolidColorBrush x:Key="PrimaryBackground">#823823</SolidColorBrush>
-                 <SolidColorBrush x:Key="SecondaryBackground">#F0D0C7</SolidColorBrush>
-                 <SolidColorBrush x:Key="TertiaryBackground">#E6B1A2</SolidColorBrush>
-             </Application.Resources>
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="/Controls/IconButton.axaml"></MergeResourceInclude>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+
+        <SolidColorBrush x:Key="PrimaryForeground">#FAEEEB</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryForeground">#472217</SolidColorBrush>
+        <SolidColorBrush x:Key="DisabledForeground">#84726C</SolidColorBrush>
+
+
+        <SolidColorBrush x:Key="PrimaryBackground">#823823</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryBackground">#F0D0C7</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryHoverBackground">#E6B1A2</SolidColorBrush>
+        <SolidColorBrush x:Key="AlertPrimaryBackground">#672382</SolidColorBrush>
+        <SolidColorBrush x:Key="DangerPrimaryBackground">#D13C11</SolidColorBrush>
+        <SolidColorBrush x:Key="SuccessPrimaryBackground">#3E8223</SolidColorBrush>
+
+        <FontFamily x:Key="Phosphor">/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+        <FontFamily x:Key="PhosphorFill">/Assets/Fonts/Phosphor.ttf#Phosphor-Fill</FontFamily>
+
+    </Application.Resources>
 </Application>
