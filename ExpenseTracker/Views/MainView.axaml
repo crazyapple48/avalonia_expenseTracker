@@ -22,9 +22,10 @@
             ColumnDefinitions="*, Auto, *, Auto, *"
             Background="{DynamicResource SecondaryBackground}"
             DockPanel.Dock="Bottom" Height="75">
-            <IconButton Grid.Column="1" Classes="icon" IconText="&#xe2c2;" Content="Home"
+            <IconButton Grid.Column="1" Classes="subtle icon" IconText="&#xe2c2;" Content="Home"
                         Command="{Binding GoToHomeCommand}" />
-            <IconButton Grid.Column="3" IconText="&#xe260;" Content="Reports" Command="{Binding GoToReportsCommand}" />
+            <IconButton Grid.Column="3" Classes="subtle icon" IconText="&#xe260;" Content="Reports"
+                        Command="{Binding GoToReportsCommand}" />
         </Grid>
         <ContentControl Content="{Binding CurrentPage}" />
     </DockPanel>
