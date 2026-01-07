@@ -8,22 +8,22 @@
                     <IconButton IconText="&#xe7f2;" Height="100" Content="Click Me!" />
                     <IconButton IconText="&#xe7f2;" Content="Click Me!" />
                     <IconButton IconText="&#xe7f2;" />
-                    <IconButton IconText="&#xe3e4;" Foreground="Red" Classes="accent" Content="Click Me!" />
+                    <IconButton IconText="&#xe3e4;" Foreground="Red" Content="Click Me!" />
                     <IconButton IconText="&#xe3e4;" Classes="outline icon-outline" Content="Click Me!" />
                     <Button Content="Click Me!" />
-                    <Button Classes="accent" Content="Click Me!" />
+                    <Button Content="Click Me!" />
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" Spacing="20">
                     <IconButton IconText="&#xe7f2;" IsEnabled="False" Content="Click Me!" />
                     <IconButton IconText="&#xe7f2;" IsEnabled="False" Content="Click Me!" />
                     <IconButton IconText="&#xe7f2;" IsEnabled="False" />
-                    <IconButton IconText="&#xe3e4;" IsEnabled="False" Foreground="Red" Classes="accent"
+                    <IconButton IconText="&#xe3e4;" IsEnabled="False" Foreground="Red"
                                 Content="Click Me!" />
                     <IconButton IconText="&#xe3e4;" IsEnabled="False" Classes="outline icon-outline"
                                 Content="Click Me!" />
                     <Button Content="Click Me!" IsEnabled="False" />
-                    <Button Classes="accent" Content="Click Me!" IsEnabled="False" />
+                    <Button Content="Click Me!" IsEnabled="False" />
                 </StackPanel>
 
             </Grid>
@@ -48,7 +48,8 @@
 
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}"
+                <Border Name="PART_RootBorder"
+                        Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding CornerRadius}"
@@ -123,6 +124,12 @@
             <Setter Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}"></Setter>
         </Style>
 
+        <!-- Normal button (clicked) -->
+        <Style Selector="^:is(Button):not(CheckBox):pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"></Setter>
+        </Style>
+
         <!-- Alert button -->
         <Style Selector="^:is(Button).alert">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
@@ -133,6 +140,12 @@
         <Style Selector="^:is(Button).alert:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource AlertPrimaryBackground}"></Setter>
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}"></Setter>
+        </Style>
+
+        <!-- Alert button (clicked) -->
+        <Style Selector="^:is(Button).alert:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource AlertClickedBackground}"></Setter>
         </Style>
 
         <!-- Danger button -->
@@ -147,6 +160,12 @@
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}"></Setter>
         </Style>
 
+        <!-- Danger button (clicked) -->
+        <Style Selector="^:is(Button).danger:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource DangerPrimaryBackground}" />
+            <Setter Property="Background" Value="{DynamicResource DangerClickedBackground}"></Setter>
+        </Style>
+
         <!-- Success button -->
         <Style Selector="^:is(Button).success">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
@@ -159,10 +178,18 @@
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}"></Setter>
         </Style>
 
+        <!-- Success button (clicked) -->
+        <Style Selector="^:is(Button).success:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessPrimaryBackground}" />
+            <Setter Property="Background" Value="{DynamicResource SuccessClickedBackground}"></Setter>
+        </Style>
+
         <!-- Subtle button -->
         <Style Selector="^:is(Button).subtle">
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}"></Setter>
             <Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}"></Setter>
+
+
         </Style>
 
         <!-- Subtle button (hover) -->
@@ -170,6 +197,13 @@
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}"></Setter>
             <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"></Setter>
         </Style>
+
+        <!-- Subtle button (clicked) -->
+        <Style Selector="^:is(Button).subtle:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}"></Setter>
+        </Style>
+
 
         <!-- Outline button -->
         <Style Selector="^:is(Button).outline">
@@ -255,7 +289,7 @@
             <Setter Property="Background" Value="Transparent"></Setter>
         </Style>
         <!-- -->
-        <!-- ~1~ Transparent button icon only label @1@ -->
+        <!-- ~1~ Transparent button icon-only label @1@ -->
         <!-- <Style Selector="^:is(Button).transparent Label.icon-only"> -->
         <!--     <Setter Property="FontFamily" Value="{DynamicResource Phosphor}"></Setter> -->
         <!-- </Style> -->

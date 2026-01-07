@@ -25,15 +25,23 @@
 
         <SolidColorBrush x:Key="PrimaryForeground">#FAEEEB</SolidColorBrush>
         <SolidColorBrush x:Key="SecondaryForeground">#472217</SolidColorBrush>
+
         <SolidColorBrush x:Key="DisabledForeground">#84726C</SolidColorBrush>
 
 
         <SolidColorBrush x:Key="PrimaryBackground">#823823</SolidColorBrush>
         <SolidColorBrush x:Key="SecondaryBackground">#F0D0C7</SolidColorBrush>
+
         <SolidColorBrush x:Key="PrimaryHoverBackground">#E6B1A2</SolidColorBrush>
+
         <SolidColorBrush x:Key="AlertPrimaryBackground">#672382</SolidColorBrush>
+        <SolidColorBrush x:Key="AlertClickedBackground">#E4C7F0</SolidColorBrush>
+
         <SolidColorBrush x:Key="DangerPrimaryBackground">#D13C11</SolidColorBrush>
+        <SolidColorBrush x:Key="DangerClickedBackground">#FACABD</SolidColorBrush>
+
         <SolidColorBrush x:Key="SuccessPrimaryBackground">#3E8223</SolidColorBrush>
+        <SolidColorBrush x:Key="SuccessClickedBackground">#D2F0C7</SolidColorBrush>
 
         <FontFamily x:Key="Phosphor">/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
         <FontFamily x:Key="PhosphorFill">/Assets/Fonts/Phosphor.ttf#Phosphor-Fill</FontFamily>

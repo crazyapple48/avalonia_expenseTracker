@@ -127,6 +127,12 @@
             <Setter Property="Background" Value="{DynamicResource ButtonBackgroundDisabled}"></Setter>
         </Style>
 
+        <!-- Normal button (clicked) -->
+        <Style Selector="^:is(Button):not(CheckBox):pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"></Setter>
+        </Style>
+
         <!-- Alert button -->
         <Style Selector="^:is(Button).alert">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
@@ -137,6 +143,12 @@
         <Style Selector="^:is(Button).alert:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource AlertPrimaryBackground}"></Setter>
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}"></Setter>
+        </Style>
+
+        <!-- Alert button (clicked) -->
+        <Style Selector="^:is(Button).alert:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource AlertClickedBackground}"></Setter>
         </Style>
 
         <!-- Danger button -->
@@ -151,6 +163,12 @@
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}"></Setter>
         </Style>
 
+        <!-- Danger button (clicked) -->
+        <Style Selector="^:is(Button).danger:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource DangerPrimaryBackground}" />
+            <Setter Property="Background" Value="{DynamicResource DangerClickedBackground}"></Setter>
+        </Style>
+
         <!-- Success button -->
         <Style Selector="^:is(Button).success">
             <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"></Setter>
@@ -163,6 +181,12 @@
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}"></Setter>
         </Style>
 
+        <!-- Success button (clicked) -->
+        <Style Selector="^:is(Button).success:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SuccessPrimaryBackground}" />
+            <Setter Property="Background" Value="{DynamicResource SuccessClickedBackground}"></Setter>
+        </Style>
+
         <!-- Subtle button -->
         <Style Selector="^:is(Button).subtle">
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}"></Setter>
@@ -173,6 +197,12 @@
         <Style Selector="^:is(Button).subtle:pointerover">
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}"></Setter>
             <Setter Property="Background" Value="{DynamicResource SecondaryBackground}"></Setter>
+        </Style>
+
+        <!-- Subtle button (clicked) -->
+        <Style Selector="^:is(Button).subtle:pressed">
+            <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}"></Setter>
         </Style>
 
         <!-- Outline button -->
