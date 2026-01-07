@@ -1,0 +1,48 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" Width="400" Background="{DynamicResource PrimaryForeground}">
+            <!-- Add Controls for Previewer Here -->
+            <StackPanel>
+                <Label Content="Home" Classes="h1" />
+                <Label Content="Home" Classes="h2" />
+                <Label Content="&#xe2c2;" Classes="icon" />
+                <Label Content="Home" Classes="success" />
+                <Label Content="Home" />
+                <Label Content="Home" />
+                <Label Content="Home" />
+                <Label Content="Home" />
+                <Label Content="Home" />
+                <Label Content="Home" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Label">
+        <Setter Property="FontSize" Value="18"></Setter>
+    </Style>
+
+    <Style Selector="Label.h1">
+        <Setter Property="FontSize" Value="32" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style Selector="Label.h2">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
+    <Style Selector="Label.icon, Label.icon-only">
+        <Setter Property="FontFamily" Value="{DynamicResource PhosphorFill}" />
+        <Setter Property="FontSize" Value="19"></Setter>
+    </Style>
+
+    <Style Selector="Label.success">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessPrimaryBackground}"></Setter>
+    </Style>
+</Styles>

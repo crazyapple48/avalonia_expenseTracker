@@ -12,6 +12,7 @@
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="Styles/General.axaml"></StyleInclude>
+        <StyleInclude Source="Styles/Labels.axaml"></StyleInclude>
     </Application.Styles>
 
     <Application.Resources>

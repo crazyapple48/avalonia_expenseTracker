@@ -5,10 +5,9 @@
              xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="765"
              x:Class="ExpenseTracker.Views.HomePageView"
-             x:DataType="vm:HomePageViewModel"
-             >
-        <Design.DataContext>
-            <vm:HomePageViewModel/>
-        </Design.DataContext>
-    <TextBlock Text="{Binding WelcomeMessage}"></TextBlock>
+             x:DataType="vm:HomePageViewModel">
+    <Design.DataContext>
+        <vm:HomePageViewModel />
+    </Design.DataContext>
+    <Label Content="{Binding WelcomeMessage}" Classes="h1" Foreground="{DynamicResource SecondaryForeground}" />
 </UserControl>

@@ -5,16 +5,12 @@
              xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="765"
              x:Class="ExpenseTracker.Views.ReportsPageView"
-             x:DataType="vm:ReportsPageViewModel"
-             >
-    
+             x:DataType="vm:ReportsPageViewModel">
+
     <Design.DataContext>
-        <vm:ReportsPageViewModel/>
+        <vm:ReportsPageViewModel />
     </Design.DataContext>
-    
-    <StackPanel>
-        
-    <TextBlock Text="{Binding ReportsMessage}"></TextBlock>
-    <Button Content="Baby"></Button>
-    </StackPanel>
+
+    <Label Content="{Binding ReportsMessage}" Classes="h1" Foreground="{DynamicResource SecondaryForeground}" />
+
 </UserControl>

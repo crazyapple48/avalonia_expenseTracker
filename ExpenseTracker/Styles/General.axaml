@@ -47,4 +47,10 @@
         </Setter>
     </Style>
 
+    <Style Selector="Border.header">
+        <Setter Property="Effect">
+            <DropShadowEffect BlurRadius="30" Opacity="0.3" />
+        </Setter>
+    </Style>
+    
 </Styles>

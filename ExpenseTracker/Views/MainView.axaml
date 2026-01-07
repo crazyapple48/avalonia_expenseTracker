@@ -12,16 +12,23 @@
     </Design.DataContext>
 
     <DockPanel Background="{DynamicResource PrimaryForeground}">
-        <Border Background="{DynamicResource PrimaryBackground}" DockPanel.Dock="Top" Height="75">
-            <TextBlock Text="Expense Tracker"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center" FontSize="24"
-                       Foreground="{DynamicResource PrimaryForeground}" />
+        <Border Background="{DynamicResource PrimaryBackground}"
+                Classes="header"
+                Margin="0 0 0 15 "
+                DockPanel.Dock="Top" Height="75">
+            <Label Content="Expense Tracker"
+                   Classes="h1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" FontSize="24"
+                   Foreground="{DynamicResource PrimaryForeground}" />
         </Border>
         <Grid
             ColumnDefinitions="*, Auto, *, Auto, *"
             Background="{DynamicResource SecondaryBackground}"
-            DockPanel.Dock="Bottom" Height="75">
+            Classes="header"
+            Height="75"
+            DockPanel.Dock="Bottom" 
+            >
             <IconButton Grid.Column="1" Classes="subtle icon" IconText="&#xe2c2;" Content="Home"
                         Command="{Binding GoToHomeCommand}" />
             <IconButton Grid.Column="3" Classes="subtle icon" IconText="&#xe260;" Content="Reports"
