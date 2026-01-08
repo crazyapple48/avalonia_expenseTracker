@@ -21,8 +21,7 @@
                    VerticalAlignment="Center" FontSize="24"
                    Foreground="{DynamicResource PrimaryForeground}" />
         </Border>
-        <Border Classes="header"
-                Height="75"
+        <Border Height="75"
                 Background="{DynamicResource SecondaryBackground}"
                 DockPanel.Dock="Bottom">
             <Grid

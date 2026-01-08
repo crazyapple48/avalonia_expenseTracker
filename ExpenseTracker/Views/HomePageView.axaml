@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="765"
+             Background="{DynamicResource PrimaryForeground}"
              x:Class="ExpenseTracker.Views.HomePageView"
              x:DataType="vm:HomePageViewModel">
     <Design.DataContext>
@@ -11,7 +12,15 @@
     </Design.DataContext>
 
     <ItemsControl ItemsSource="{Binding Shortcuts}"
+                  Background="Transparent"
                   HorizontalAlignment="Center">
+
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Background="Transparent"></StackPanel>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <Button Content="{Binding}"
