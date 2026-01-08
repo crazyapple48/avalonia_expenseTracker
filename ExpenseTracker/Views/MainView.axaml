@@ -3,7 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:ExpenseTracker.ViewModels"
-             xmlns:views="clr-namespace:ExpenseTracker.Views"
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="915"
              x:Class="ExpenseTracker.Views.MainView"
              x:DataType="vm:MainViewModel">
@@ -22,18 +21,18 @@
                    VerticalAlignment="Center" FontSize="24"
                    Foreground="{DynamicResource PrimaryForeground}" />
         </Border>
-        <Grid
-            ColumnDefinitions="*, Auto, *, Auto, *"
-            Background="{DynamicResource SecondaryBackground}"
-            Classes="header"
-            Height="75"
-            DockPanel.Dock="Bottom" 
-            >
-            <IconButton Grid.Column="1" Classes="subtle icon" IconText="&#xe2c2;" Content="Home"
-                        Command="{Binding GoToHomeCommand}" />
-            <IconButton Grid.Column="3" Classes="subtle icon" IconText="&#xe260;" Content="Reports"
-                        Command="{Binding GoToReportsCommand}" />
-        </Grid>
+        <Border Classes="header"
+                Height="75"
+                Background="{DynamicResource SecondaryBackground}"
+                DockPanel.Dock="Bottom">
+            <Grid
+                ColumnDefinitions="*, Auto, *, Auto, *">
+                <IconButton Grid.Column="1" Classes="subtle" IconText="&#xe2c2;" Content="Home"
+                            Command="{Binding GoToHomeCommand}" />
+                <IconButton Grid.Column="3" Classes="subtle" IconText="&#xe260;" Content="Reports"
+                            Command="{Binding GoToReportsCommand}" />
+            </Grid>
+        </Border>
         <ContentControl Content="{Binding CurrentPage}" />
     </DockPanel>
 </UserControl>

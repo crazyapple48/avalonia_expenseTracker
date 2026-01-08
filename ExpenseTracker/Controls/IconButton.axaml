@@ -9,8 +9,8 @@
                     <IconButton IconText="&#xe7f2;" Content="Click Me!" />
                     <IconButton IconText="&#xe7f2;" />
                     <IconButton IconText="&#xe3e4;" Foreground="Red" Content="Click Me!" />
-                    <IconButton IconText="&#xe3e4;" Classes="outline icon-outline" Content="Click Me!" />
-                    <Button Content="Click Me!" />
+                    <IconButton IconText="&#xe3e4;" Classes="subtle icon-outline" Content="Click Me!" />
+                    <Button Content="Click Me!" Classes="subtle" />
                     <Button Content="Click Me!" />
                 </StackPanel>
 
@@ -36,7 +36,6 @@
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThemeThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="Padding" Value="{DynamicResource ButtonPadding}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="RenderTransform" Value="none" />
@@ -201,7 +200,7 @@
         <!-- Subtle button (clicked) -->
         <Style Selector="^:is(Button).subtle:pressed">
             <Setter Property="Foreground" Value="{DynamicResource SecondaryForeground}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}"></Setter>
+            <Setter Property="Background" Value="{DynamicResource PrimaryBackground}"></Setter>
         </Style>
 
 

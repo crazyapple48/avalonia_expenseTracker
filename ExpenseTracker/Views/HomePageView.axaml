@@ -9,5 +9,15 @@
     <Design.DataContext>
         <vm:HomePageViewModel />
     </Design.DataContext>
-    <Label Content="{Binding WelcomeMessage}" Classes="h1" Foreground="{DynamicResource SecondaryForeground}" />
+
+    <ItemsControl ItemsSource="{Binding Shortcuts}"
+                  HorizontalAlignment="Center">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Button Content="{Binding}"
+                        HorizontalAlignment="Center"
+                        Margin="0 5" />
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>
