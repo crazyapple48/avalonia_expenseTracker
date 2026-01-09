@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
+             mc:Ignorable="d"
+             MinWidth="300" MinHeight="200"
+             x:Class="ExpenseTracker.Views.SubmitExpenseDialogView"
+             x:DataType="vm:SubmitExpenseDialogViewModel"
+             Foreground="{DynamicResource SecondaryBackground}"
+             Background="Transparent">
+    <Design.DataContext>
+        <vm:SubmitExpenseDialogViewModel />
+    </Design.DataContext>
+
+    <Border Background="{DynamicResource PrimaryForeground}"
+            CornerRadius="20"
+            ClipToBounds="True" Margin="5"
+            BorderBrush="{DynamicResource SecondaryBackground}"
+            BorderThickness="3">
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15"
+                              Color="{DynamicResource PrimaryBrown}"
+                              Opacity="0.6" />
+        </Border.Effect>
+
+        <Grid RowDefinitions="75, *, 50">
+
+            <!-- Title -->
+            <Border Grid.Row="0" Background="{DynamicResource PrimaryBackground}"
+                    CornerRadius="20 20 0 0"
+                    Classes="header">
+
+                <Label Classes="h2"
+                       Content="{Binding Title}"
+                       HorizontalAlignment="Center"
+                       Padding="0 10">
+                </Label>
+            </Border>
+
+            <!-- Buttons -->
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+
+                <Button Classes="danger"
+                        Content="{Binding CancelText}"
+                        HorizontalAlignment="Center"
+                        Command="{Binding CancelCommand}" />
+
+                <Button Classes="success"
+                        Content="{Binding SubmitText}"
+                        HorizontalAlignment="Center"
+                        Command="{Binding SubmitCommand}" />
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+
+</UserControl>

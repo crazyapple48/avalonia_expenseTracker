@@ -24,6 +24,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
+        <Color x:Key="PrimaryBrown">#823823</Color>
 
         <SolidColorBrush x:Key="PrimaryForeground">#FAEEEB</SolidColorBrush>
         <SolidColorBrush x:Key="SecondaryForeground">#472217</SolidColorBrush>
@@ -31,7 +32,7 @@
         <SolidColorBrush x:Key="DisabledForeground">#84726C</SolidColorBrush>
 
 
-        <SolidColorBrush x:Key="PrimaryBackground">#823823</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryBackground" Color="{DynamicResource PrimaryBrown}" />
         <SolidColorBrush x:Key="SecondaryBackground">#F0D0C7</SolidColorBrush>
 
         <SolidColorBrush x:Key="PrimaryHoverBackground">#E6B1A2</SolidColorBrush>

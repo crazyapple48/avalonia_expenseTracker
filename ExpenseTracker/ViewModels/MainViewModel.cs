@@ -2,38 +2,41 @@
 using System.Runtime.InteropServices;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExpenseTracker.Interfaces;
 using ExpenseTracker.MainApp;
 
 namespace ExpenseTracker.ViewModels;
 
-public partial class MainViewModel : ViewModelBase
+public partial class MainViewModel(PageFactory pageFactory) : ViewModelBase, IDialogProvider
 {
-    private readonly PageFactory _pageFactory;
-    
-    [ObservableProperty]
+    private PageFactory? _pageFactory;
+
+    [ObservableProperty] [NotifyPropertyChangedFor(nameof(HomePageIsActive), nameof(ReportsPageIsActive))]
     private PageViewModel _currentPage;
 
     public bool HomePageIsActive => CurrentPage.PageName == ApplicationPageNames.Home;
     public bool ReportsPageIsActive => CurrentPage.PageName == ApplicationPageNames.Reports;
 
+    [ObservableProperty] private DialogViewModel _dialog;
+
     /// <summary>
     /// Design-time Constructor
     /// </summary>
-    public MainViewModel()
+    public MainViewModel() : this(new PageFactory((_) => new ReportsPageViewModel()))
     {
-        CurrentPage = new HomePageViewModel();
+        CurrentPage = new ReportsPageViewModel();
     }
-    
-    public MainViewModel(PageFactory pageFactory)
+
+    [RelayCommand]
+    public void Initialize()
     {
         _pageFactory = pageFactory ?? throw new ArgumentNullException(nameof(pageFactory));
-        
         CurrentPage = _pageFactory.GetPageViewModel<HomePageViewModel>();
     }
-    
+
     [RelayCommand]
     private void GoToHome() => CurrentPage = _pageFactory.GetPageViewModel<HomePageViewModel>();
-    
+
     [RelayCommand]
     private void GoToReports() => CurrentPage = _pageFactory.GetPageViewModel<ReportsPageViewModel>();
 }
