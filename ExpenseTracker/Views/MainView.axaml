@@ -5,14 +5,14 @@
              xmlns:vm="using:ExpenseTracker.ViewModels"
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="915"
              x:Class="ExpenseTracker.Views.MainView"
-             x:DataType="vm:MainViewModel">
-    <Design.DataContext>
-        <vm:MainViewModel />
-    </Design.DataContext>
-    
+             x:DataType="vm:MainViewModel"
+             xmlns:design="clr-namespace:ExpenseTracker.Design"
+             d:DataContext="{x:Static design:DesignData.MainViewModel}">
+
+
     <Interaction.Behaviors>
         <LoadedTrigger>
-            <InvokeCommandAction Command="{Binding InitializeCommand}"/>
+            <InvokeCommandAction Command="{Binding InitializeCommand}" />
         </LoadedTrigger>
     </Interaction.Behaviors>
 

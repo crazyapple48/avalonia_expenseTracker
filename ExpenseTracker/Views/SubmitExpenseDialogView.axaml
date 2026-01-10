@@ -8,10 +8,9 @@
              x:Class="ExpenseTracker.Views.SubmitExpenseDialogView"
              x:DataType="vm:SubmitExpenseDialogViewModel"
              Foreground="{DynamicResource SecondaryBackground}"
-             Background="Transparent">
-    <Design.DataContext>
-        <vm:SubmitExpenseDialogViewModel />
-    </Design.DataContext>
+             Background="Transparent"
+             xmlns:design="clr-namespace:ExpenseTracker.Design"
+             d:DataContext="{x:Static design:DesignData.SubmitExpenseDialogViewModel}">
 
     <Border Background="{DynamicResource PrimaryForeground}"
             CornerRadius="20"
@@ -38,6 +37,12 @@
                        Padding="0 10">
                 </Label>
             </Border>
+
+            <!-- Main Content -->
+
+            <StackPanel Grid.Row="1">
+                <Label Content="{Binding Name}" />
+            </StackPanel>
 
             <!-- Buttons -->
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">

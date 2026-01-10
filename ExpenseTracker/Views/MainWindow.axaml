@@ -10,9 +10,11 @@
         Icon="/Assets/avalonia-logo.ico"
         WindowStartupLocation="CenterScreen"
         x:Class="ExpenseTracker.MainWindow"
-        Title="ExpenseTracker">
-        
-        
-        <local:MainView />
-        
+        Title="ExpenseTracker"
+        xmlns:design="clr-namespace:ExpenseTracker.Design"
+        d:DataContext="{x:Static design:DesignData.MainViewModel}">
+
+
+    <local:MainView />
+
 </Window>

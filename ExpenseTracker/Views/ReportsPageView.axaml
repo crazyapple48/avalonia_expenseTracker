@@ -5,11 +5,9 @@
              xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="765"
              x:Class="ExpenseTracker.Views.ReportsPageView"
-             x:DataType="vm:ReportsPageViewModel">
-
-    <Design.DataContext>
-        <vm:ReportsPageViewModel />
-    </Design.DataContext>
+             x:DataType="vm:ReportsPageViewModel"
+             xmlns:design="clr-namespace:ExpenseTracker.Design"
+             d:DataContext="{x:Static design:DesignData.ReportsPageViewModel}">
 
     <Label Content="{Binding ReportsMessage}" Classes="h1" Foreground="{DynamicResource SecondaryForeground}" />
 

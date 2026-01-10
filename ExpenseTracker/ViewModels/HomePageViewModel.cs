@@ -12,15 +12,26 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
 {
     [ObservableProperty] private string _welcomeMessage = "Welcome to Home Page!";
 
-    [ObservableProperty] private ObservableCollection<string> _shortcuts = ["Gas", "Soda"];
+    [ObservableProperty] private ObservableCollection<SelectedShortcutViewModel> _shortcuts =
+        [new SelectedShortcutViewModel(), new SelectedShortcutViewModel { Name = "Soda" }];
+
+    [ObservableProperty] private SelectedShortcutViewModel? _selectedShortcut;
+
+    public HomePageViewModel() : this(new MainViewModel(), new DialogService())
+    {
+    }
 
     [RelayCommand]
-    public async Task CreateExpenseAsync()
+    public async Task CreateExpenseAsync(SelectedShortcutViewModel? selectedShortcut = null)
     {
+        if (selectedShortcut is null) return;
         var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel
         {
-            Name = "Gas"
+            Name = selectedShortcut.Name,
+            Amount = selectedShortcut.Amount,
+            Location = selectedShortcut.Location,
         };
+
 
         await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
     }

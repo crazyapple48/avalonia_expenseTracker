@@ -6,27 +6,24 @@
              mc:Ignorable="d" d:DesignWidth="412" d:DesignHeight="765"
              Background="{DynamicResource PrimaryForeground}"
              x:Class="ExpenseTracker.Views.HomePageView"
-             x:DataType="vm:HomePageViewModel">
-    <Design.DataContext>
-        <vm:HomePageViewModel />
-    </Design.DataContext>
+             x:DataType="vm:HomePageViewModel"
+             xmlns:design="clr-namespace:ExpenseTracker.Design"
+             d:DataContext="{x:Static design:DesignData.HomePageViewModel}">
 
-    <ItemsControl ItemsSource="{Binding Shortcuts}"
-                  Background="Transparent"
-                  HorizontalAlignment="Center">
+    <ListBox ItemsSource="{Binding Shortcuts}"
+             SelectedItem="{Binding SelectedShortcut}"
+             Background="Transparent"
+             HorizontalAlignment="Center">
 
-        <ItemsControl.ItemsPanel>
-            <ItemsPanelTemplate>
-                <StackPanel Background="Transparent"></StackPanel>
-            </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
+        <Interaction.Behaviors>
+            <ExecuteCommandOnTappedBehavior Command="{Binding CreateExpenseCommand}"
+                                            CommandParameter="{Binding SelectedShortcut}" />
+        </Interaction.Behaviors>
 
-        <ItemsControl.ItemTemplate>
+        <ListBox.ItemTemplate>
             <DataTemplate>
-                <Button Content="{Binding}"
-                        HorizontalAlignment="Center"
-                        Margin="0 5" />
+                <Label Content="{Binding Name}" />
             </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

@@ -1,0 +1,48 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <ListBox
+                Background="Transparent"
+                HorizontalAlignment="Center">
+                <ListBoxItem Content="Gas">
+                </ListBoxItem>
+            </ListBox>
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+
+    <!-- Add Styles Here -->
+    
+    <Style Selector="ListBoxItem">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBackground}" />
+        <Setter Property="Padding" Value="15 5" />
+        <Setter Property="CornerRadius" Value="25" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="0 10"></Setter>
+    </Style>
+    
+    <!-- This removes the grey background on Hover -->
+    <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource SecondaryBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBackground}" />
+    </Style>
+    
+    <!-- This removes the background when Selected -->
+    <Style Selector="ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource AlertPrimaryBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+    </Style>
+    
+    
+    <!-- Optional: Change color on Hover too -->
+    <Style Selector="ListBoxItem:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource AlertClickedBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource AlertPrimaryBackground}" />
+    </Style>
+
+</Styles>
