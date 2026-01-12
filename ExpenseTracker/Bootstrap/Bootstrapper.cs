@@ -28,5 +28,6 @@ public static class Bootstrapper
         // Add Transients
         collection.AddTransient<HomePageViewModel>();
         collection.AddTransient<ReportsPageViewModel>();
+        collection.AddTransient<SubmitExpenseDialogViewModel>();
     }
 }

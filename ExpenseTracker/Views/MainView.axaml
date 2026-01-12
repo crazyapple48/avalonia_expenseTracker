@@ -7,7 +7,8 @@
              x:Class="ExpenseTracker.Views.MainView"
              x:DataType="vm:MainViewModel"
              xmlns:design="clr-namespace:ExpenseTracker.Design"
-             d:DataContext="{x:Static design:DesignData.MainViewModel}">
+             d:DataContext="{x:Static design:DesignData.MainViewModel}"
+             >
 
 
     <Interaction.Behaviors>

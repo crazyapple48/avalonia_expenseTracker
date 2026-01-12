@@ -7,12 +7,12 @@ namespace ExpenseTracker.ViewModels;
 
 public partial class SubmitExpenseDialogViewModel : DialogViewModel
 {
-    [ObservableProperty] private string _name = "";
-    [ObservableProperty] private string? _location;
-    [ObservableProperty] private double? _amount;
-    [ObservableProperty] private string? _nickName;
-    [ObservableProperty] private string? _reason;
-    [ObservableProperty] private string? _paymentMethod;
+    [ObservableProperty] private string _name = "Gas";
+    [ObservableProperty] private string? _location = "Qt";
+    [ObservableProperty] private double? _amount = 54.87;
+    [ObservableProperty] private string? _nickName = "Debit";
+    [ObservableProperty] private string? _reason = "Work";
+    [ObservableProperty] private string? _paymentMethod = "Credit Card";
 
     [ObservableProperty] private string _title = "Submit Expense";
     [ObservableProperty] private string _submitText = "Submit";
