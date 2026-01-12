@@ -42,12 +42,12 @@
 
             <ScrollViewer Grid.Row="1">
                 <StackPanel Spacing="5" Margin="0 10 0 0">
-                    <TextBox Text="{Binding Name}" Foreground="{DynamicResource PrimaryBackground}" />
-                    <TextBox Text="{Binding Location}" Foreground="{DynamicResource PrimaryBackground}" />
-                    <TextBox Text="{Binding Reason}" Foreground="{DynamicResource PrimaryBackground}" />
-                    <TextBox Text="{Binding Amount}" Foreground="{DynamicResource PrimaryBackground}" />
-                    <TextBox Text="{Binding PaymentMethod}" Foreground="{DynamicResource PrimaryBackground}" />
-                    <TextBox Text="{Binding NickName}" Foreground="{DynamicResource PrimaryBackground}" />
+                    <TextBox Text="{Binding Name}" />
+                    <TextBox Text="{Binding Location}" />
+                    <TextBox Text="{Binding Reason}" />
+                    <TextBox Text="{Binding Amount}" />
+                    <TextBox Text="{Binding PaymentMethod}" />
+                    <TextBox Text="{Binding NickName}" />
                 </StackPanel>
 
             </ScrollViewer>
