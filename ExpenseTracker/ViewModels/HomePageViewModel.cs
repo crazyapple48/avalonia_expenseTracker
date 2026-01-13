@@ -28,8 +28,11 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
         var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel
         {
             Name = selectedShortcut.Name,
-            Amount = selectedShortcut.Amount,
-            Location = selectedShortcut.Location,
+            DefaultAmount = selectedShortcut.Amount,
+            DefaultLocation = selectedShortcut.Location,
+            DefaultReason = selectedShortcut.Reason,
+            DefaultNickName = selectedShortcut.NickName,
+            DefaultPaymentMethod = selectedShortcut.PaymentMethod
         };
 
 

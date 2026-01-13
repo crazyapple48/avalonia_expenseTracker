@@ -9,7 +9,7 @@
                 <TextBox Text="Work" />
                 <TextBox Text="54.87" />
                 <TextBox Text="Credit Card" />
-                <TextBox Text="Debit" />
+                <TextBox Text="Debit" IsEnabled="False" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -44,13 +44,27 @@
     <Style Selector="TextBox:focus">
         <Setter Property="Foreground" Value="{DynamicResource AlertPrimaryBackground}" />
 
-        <!-- <Style Selector="^ /template/ TextBlock#PART_Watermark"> -->
-        <!--     <Setter Property="Foreground" Value="{DynamicResource AlertPrimaryBackground}" /> -->
-        <!-- </Style> -->
+        <Style Selector="^ /template/ TextBlock#PART_Watermark">
+            <Setter Property="Foreground" Value="{DynamicResource AlertPrimaryBackground}" />
+        </Style>
 
         <Style Selector="^ /template/ Border#PART_BorderElement">
             <Setter Property="Background" Value="{DynamicResource PrimaryForeground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource AlertPrimaryBackground}" />
+        </Style>
+    </Style>
+
+    <!-- Disabled State -->
+    <Style Selector="TextBox:disabled">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBackground}" />
+
+        <Style Selector="^ /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="{DynamicResource PrimaryForeground}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^ /template/ TextBlock#PART_Watermark, ^ /template/ TextBlock#PART_FloatingWatermark">
+            <Setter Property="Foreground" Value="{DynamicResource TextControlPlaceholderForegroundDisabled}" />
         </Style>
     </Style>
 

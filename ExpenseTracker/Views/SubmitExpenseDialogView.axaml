@@ -42,12 +42,47 @@
 
             <ScrollViewer Grid.Row="1">
                 <StackPanel Spacing="5" Margin="0 10 0 0">
-                    <TextBox Text="{Binding Name}" />
-                    <TextBox Text="{Binding Location}" />
-                    <TextBox Text="{Binding Reason}" />
-                    <TextBox Text="{Binding Amount}" />
-                    <TextBox Text="{Binding PaymentMethod}" />
-                    <TextBox Text="{Binding NickName}" />
+                    <TextBox Text="{Binding Name}" IsEnabled="{Binding !IsShortcut}" />
+                    <TextBox Text="{Binding Location}">
+                        <TextBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
+                                <Binding Path="DefaultLocation" Mode="OneWay" />
+                                <Binding Path="IsShortcut" />
+                            </MultiBinding>
+                        </TextBox.IsEnabled>
+                    </TextBox>
+                    <TextBox Text="{Binding Reason}">
+                        <TextBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
+                                <Binding Path="DefaultReason" Mode="OneWay" />
+                                <Binding Path="IsShortcut" />
+                            </MultiBinding>
+                        </TextBox.IsEnabled>
+                    </TextBox>
+                    <TextBox Text="{Binding Amount}">
+                        <TextBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
+                                <Binding Path="DefaultAmount" Mode="OneWay" />
+                                <Binding Path="IsShortcut" />
+                            </MultiBinding>
+                        </TextBox.IsEnabled>
+                    </TextBox>
+                    <TextBox Text="{Binding PaymentMethod}">
+                        <TextBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
+                                <Binding Path="DefaultPaymentMethod" Mode="OneWay" />
+                                <Binding Path="IsShortcut" />
+                            </MultiBinding>
+                        </TextBox.IsEnabled>
+                    </TextBox>
+                    <TextBox Text="{Binding NickName}">
+                        <TextBox.IsEnabled>
+                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
+                                <Binding Path="DefaultNickName" Mode="OneWay" />
+                                <Binding Path="IsShortcut" />
+                            </MultiBinding>
+                        </TextBox.IsEnabled>
+                    </TextBox>
                 </StackPanel>
 
             </ScrollViewer>
