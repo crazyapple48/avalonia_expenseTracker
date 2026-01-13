@@ -43,6 +43,11 @@
     </Style>
 
     <Style Selector="Label.success">
-        <Setter Property="Foreground" Value="{DynamicResource SuccessPrimaryBackground}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource SuccessPrimaryBackground}" />
+    </Style>
+
+    <Style Selector="Label.fieldLabel">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBackground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
 </Styles>

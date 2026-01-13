@@ -20,6 +20,7 @@
         <Setter Property="Background" Value="{DynamicResource PrimaryForeground}" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBackground}" />
+        <Setter Property="FontSize" Value="18" />
         <Setter Property="CornerRadius" Value="10" />
     </Style>
 
