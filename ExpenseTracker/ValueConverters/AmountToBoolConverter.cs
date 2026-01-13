@@ -6,13 +6,15 @@ using Avalonia.Data.Converters;
 
 namespace ExpenseTracker.ValueConverters;
 
-public class AmountToBoolConverter : IMultiValueConverter
+public class AmountToBoolConverter : IValueConverter
 {
-    public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        var amount = values.ElementAtOrDefault(0) as double?;
-        var isShortcut = values.ElementAtOrDefault(1) is true;
+        return value is null;
+    }
 
-        return !isShortcut || amount is null;
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

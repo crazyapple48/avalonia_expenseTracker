@@ -6,18 +6,15 @@ using Avalonia.Data.Converters;
 
 namespace ExpenseTracker.ValueConverters;
 
-public class ShortcutValuesToBoolConverter : IMultiValueConverter
+public class ShortcutValuesToBoolConverter : IValueConverter
 {
-    public object? Convert(IList<object?> values, Type targetType, object? parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        var text = values.ElementAtOrDefault(0) as string;
-        var isShortcut = values.ElementAtOrDefault(1) is true;
+        return value is "" or null;
+    }
 
-        if ((isShortcut && text != null) || text is null)
-        {
-            return text is "" or null;
-        }
-
-        return true;
+    public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -51,65 +51,36 @@
                       ColumnDefinitions="Auto, *"
                       RowSpacing="8"
                       ColumnSpacing="5">
-                    
+
                     <!-- Name Field -->
                     <Label Grid.Row="0" Grid.Column="0" Content="Name:" Classes="fieldLabel" />
                     <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Name}" IsEnabled="{Binding !IsShortcut}" />
-                    
+
                     <!-- Location Field -->
                     <Label Grid.Row="1" Grid.Column="0" Content="Location: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Location}">
-                        <TextBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultLocation" Mode="OneTime" />
-                                <Binding Path="IsShortcut" />
-                            </MultiBinding>
-                        </TextBox.IsEnabled>
-                    </TextBox>
-                    
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Location}"
+                             IsEnabled="{Binding DefaultLocation, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+
                     <!-- Reason Field -->
                     <Label Grid.Row="2" Grid.Column="0" Content="Reason: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Reason}">
-                        <TextBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultReason" Mode="OneTime" />
-                                <Binding Path="IsShortcut" />
-                            </MultiBinding>
-                        </TextBox.IsEnabled>
-                    </TextBox>
-                    
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Reason}"
+                             IsEnabled="{Binding DefaultReason, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+
                     <!-- Amount Field -->
                     <Label Grid.Row="3" Grid.Column="0" Content="Amount: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Amount}">
-                        <TextBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource AmountToBoolConverter}">
-                                <Binding Path="DefaultAmount" Mode="OneTime" />
-                                <Binding Path="IsShortcut" />
-                            </MultiBinding>
-                        </TextBox.IsEnabled>
-                    </TextBox>
-                    
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Amount}"
+                             IsEnabled="{Binding DefaultAmount, Converter={StaticResource AmountToBoolConverter}}" />
+
+
                     <!-- Payment Method Field -->
                     <Label Grid.Row="4" Grid.Column="0" Content="Payment Method: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding PaymentMethod}">
-                        <TextBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultPaymentMethod" Mode="OneTime" />
-                                <Binding Path="IsShortcut" />
-                            </MultiBinding>
-                        </TextBox.IsEnabled>
-                    </TextBox>
-                    
+                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding PaymentMethod}"
+                             IsEnabled="{Binding DefaultPaymentMethod, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+
                     <!-- NickName Field -->
                     <Label Grid.Row="5" Grid.Column="0" Content="NickName: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NickName}">
-                        <TextBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultNickName" Mode="OneTime" />
-                                <Binding Path="IsShortcut" />
-                            </MultiBinding>
-                        </TextBox.IsEnabled>
-                    </TextBox>
+                    <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NickName}"
+                             IsEnabled="{Binding DefaultNickName, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
                 </Grid>
 
             </ScrollViewer>
