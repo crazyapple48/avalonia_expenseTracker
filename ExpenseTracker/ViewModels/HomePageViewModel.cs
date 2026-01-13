@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel.__Internals;
 using CommunityToolkit.Mvvm.Input;
 using ExpenseTracker.MainApp;
 using ExpenseTracker.Services;
@@ -13,7 +14,17 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
     [ObservableProperty] private string _welcomeMessage = "Welcome to Home Page!";
 
     [ObservableProperty] private ObservableCollection<SelectedShortcutViewModel> _shortcuts =
-        [new SelectedShortcutViewModel(), new SelectedShortcutViewModel { Name = "Soda" }];
+    [
+        new SelectedShortcutViewModel
+        {
+            Name = "Gas", Amount = 54.75,
+            Location = "Home",
+            Reason = "Food",
+            NickName = "Jane",
+            PaymentMethod = "Cash"
+        },
+        new SelectedShortcutViewModel { Name = "Soda" }
+    ];
 
     [ObservableProperty] private SelectedShortcutViewModel? _selectedShortcut;
 
@@ -32,9 +43,9 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
             DefaultLocation = selectedShortcut.Location,
             DefaultReason = selectedShortcut.Reason,
             DefaultNickName = selectedShortcut.NickName,
-            DefaultPaymentMethod = selectedShortcut.PaymentMethod
+            DefaultPaymentMethod = selectedShortcut.PaymentMethod,
+            IsShortcut = true,
         };
-
 
         await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
     }

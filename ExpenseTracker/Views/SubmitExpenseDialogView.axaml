@@ -12,6 +12,12 @@
              xmlns:design="clr-namespace:ExpenseTracker.Design"
              d:DataContext="{x:Static design:DesignData.SubmitExpenseDialogViewModel}">
 
+    <Interaction.Behaviors>
+        <LoadedTrigger>
+            <InvokeCommandAction Command="{Binding InitializeCommand}"></InvokeCommandAction>
+        </LoadedTrigger>
+    </Interaction.Behaviors>
+
     <Border Background="{DynamicResource PrimaryForeground}"
             CornerRadius="20"
             ClipToBounds="True" Margin="5"
@@ -46,7 +52,7 @@
                     <TextBox Text="{Binding Location}">
                         <TextBox.IsEnabled>
                             <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultLocation" Mode="OneWay" />
+                                <Binding Path="DefaultLocation" Mode="OneTime" />
                                 <Binding Path="IsShortcut" />
                             </MultiBinding>
                         </TextBox.IsEnabled>
@@ -54,15 +60,15 @@
                     <TextBox Text="{Binding Reason}">
                         <TextBox.IsEnabled>
                             <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultReason" Mode="OneWay" />
+                                <Binding Path="DefaultReason" Mode="OneTime" />
                                 <Binding Path="IsShortcut" />
                             </MultiBinding>
                         </TextBox.IsEnabled>
                     </TextBox>
                     <TextBox Text="{Binding Amount}">
                         <TextBox.IsEnabled>
-                            <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultAmount" Mode="OneWay" />
+                            <MultiBinding Converter="{StaticResource AmountToBoolConverter}">
+                                <Binding Path="DefaultAmount" Mode="OneTime" />
                                 <Binding Path="IsShortcut" />
                             </MultiBinding>
                         </TextBox.IsEnabled>
@@ -70,7 +76,7 @@
                     <TextBox Text="{Binding PaymentMethod}">
                         <TextBox.IsEnabled>
                             <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultPaymentMethod" Mode="OneWay" />
+                                <Binding Path="DefaultPaymentMethod" Mode="OneTime" />
                                 <Binding Path="IsShortcut" />
                             </MultiBinding>
                         </TextBox.IsEnabled>
@@ -78,7 +84,7 @@
                     <TextBox Text="{Binding NickName}">
                         <TextBox.IsEnabled>
                             <MultiBinding Converter="{StaticResource ShortcutValuesToBoolConverter}">
-                                <Binding Path="DefaultNickName" Mode="OneWay" />
+                                <Binding Path="DefaultNickName" Mode="OneTime" />
                                 <Binding Path="IsShortcut" />
                             </MultiBinding>
                         </TextBox.IsEnabled>

@@ -28,6 +28,7 @@
         </ResourceDictionary>
 
         <vc:ShortcutValuesToBoolConverter x:Key="ShortcutValuesToBoolConverter"></vc:ShortcutValuesToBoolConverter>
+        <vc:AmountToBoolConverter x:Key="AmountToBoolConverter"></vc:AmountToBoolConverter>
 
         <Color x:Key="PrimaryBrown">#823823</Color>
 

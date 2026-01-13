@@ -7,7 +7,7 @@ namespace ExpenseTracker.ViewModels;
 
 public partial class SubmitExpenseDialogViewModel : DialogViewModel
 {
-    [ObservableProperty] private string _name = "Gas";
+    [ObservableProperty] private string _name = "";
     [ObservableProperty] private string? _location;
     [ObservableProperty] private string? _defaultLocation;
     [ObservableProperty] private double? _amount;
@@ -27,11 +27,11 @@ public partial class SubmitExpenseDialogViewModel : DialogViewModel
     [ObservableProperty] private bool _submitSucceeded;
     [ObservableProperty] private bool _submitting;
 
-    [ObservableProperty] private bool _isShortcut = true;
+    [ObservableProperty] private bool _isShortcut;
 
 
     [RelayCommand]
-    public void Submit()
+    private void Submit()
     {
         Submitting = true;
         Thread.Sleep(1000);
@@ -42,10 +42,20 @@ public partial class SubmitExpenseDialogViewModel : DialogViewModel
     }
 
     [RelayCommand]
-    public void Cancel()
+    private void Cancel()
     {
         SubmitSucceeded = false;
 
         Close();
+    }
+
+    [RelayCommand]
+    private void Initialize()
+    {
+        Amount = DefaultAmount;
+        Location = DefaultLocation;
+        NickName = DefaultNickName;
+        PaymentMethod = DefaultPaymentMethod;
+        Reason = DefaultReason;
     }
 }
