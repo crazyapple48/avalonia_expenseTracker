@@ -1,14 +1,7 @@
-using CommunityToolkit.Mvvm.ComponentModel;
+namespace ExpenseTracker.Models;
 
-namespace ExpenseTracker.ViewModels;
-
-public partial class SelectedShortcutViewModel
-    : ViewModelBase
+public class ShortcutModel
 {
-    #region Members
-
-    #endregion
-
     #region Properties
 
     public string Name { get; set; } = "";

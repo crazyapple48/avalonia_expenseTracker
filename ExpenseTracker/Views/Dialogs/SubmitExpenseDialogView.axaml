@@ -2,15 +2,15 @@
              xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d = "http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm = "clr-namespace:ExpenseTracker.ViewModels"
              mc:Ignorable = "d"
              MinWidth = "400"
              MinHeight = "200"
-             x:Class = "ExpenseTracker.Views.SubmitExpenseDialogView"
-             x:DataType = "vm:SubmitExpenseDialogViewModel"
+             x:Class = "ExpenseTracker.Views.Dialogs.SubmitExpenseDialogView"
+             x:DataType = "dialogs:SubmitExpenseDialogViewModel"
              Foreground = "{DynamicResource SecondaryBackground}"
              Background = "Transparent"
              xmlns:design = "clr-namespace:ExpenseTracker.Design"
+             xmlns:dialogs = "clr-namespace:ExpenseTracker.ViewModels.Dialogs"
              d:DataContext = "{x:Static design:DesignData.SubmitExpenseDialogViewModel}">
 
     <Interaction.Behaviors>

@@ -7,9 +7,10 @@
              d:DesignWidth = "412"
              d:DesignHeight = "765"
              Background = "{DynamicResource PrimaryForeground}"
-             x:Class = "ExpenseTracker.Views.HomePageView"
-             x:DataType = "vm:HomePageViewModel"
+             x:Class = "ExpenseTracker.Views.Pages.HomePageView"
+             x:DataType = "pages:HomePageViewModel"
              xmlns:design = "clr-namespace:ExpenseTracker.Design"
+             xmlns:pages = "clr-namespace:ExpenseTracker.ViewModels.Pages"
              d:DataContext = "{x:Static design:DesignData.HomePageViewModel}">
 
     <Grid RowDefinitions = "*, Auto"

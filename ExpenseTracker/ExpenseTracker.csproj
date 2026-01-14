@@ -28,4 +28,19 @@
     <ItemGroup>
         <Folder Include="Assets\Fonts\"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Views\Pages\HomePageView.axaml.cs">
+            <DependentUpon>HomePageView.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Views\Pages\ReportsPageView.axaml.cs">
+            <DependentUpon>ReportsPageView.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Views\Dialogs\SubmitExpenseDialogView.axaml.cs">
+            <DependentUpon>SubmitExpenseDialogView.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+    </ItemGroup>
 </Project>

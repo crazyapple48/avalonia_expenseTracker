@@ -4,6 +4,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExpenseTracker.Interfaces;
 using ExpenseTracker.MainApp;
+using ExpenseTracker.ViewModels.Base;
+using ExpenseTracker.ViewModels.Dialogs;
+using ExpenseTracker.ViewModels.Pages;
 
 namespace ExpenseTracker.ViewModels;
 

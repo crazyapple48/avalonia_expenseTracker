@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ExpenseTracker.ViewModels;
+namespace ExpenseTracker.ViewModels.Base;
 
 public abstract class ViewModelBase : ObservableObject
 {

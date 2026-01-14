@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace ExpenseTracker.Views;
+namespace ExpenseTracker.Views.Pages;
 
 public partial class ReportsPageView : UserControl
 {

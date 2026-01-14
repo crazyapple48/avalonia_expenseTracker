@@ -1,7 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using ExpenseTracker.MainApp;
+using ExpenseTracker.ViewModels.Base;
 
-namespace ExpenseTracker.ViewModels;
+namespace ExpenseTracker.ViewModels.Pages;
 
 public partial class ReportsPageViewModel() : PageViewModel(ApplicationPageNames.Reports)
 {
