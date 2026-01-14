@@ -2,13 +2,13 @@
              xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d = "http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm = "clr-namespace:ExpenseTracker.ViewModels"
              mc:Ignorable = "d"
              d:DesignWidth = "412"
              d:DesignHeight = "765"
-             x:Class = "ExpenseTracker.Views.ReportsPageView"
-             x:DataType = "vm:ReportsPageViewModel"
+             x:Class = "ExpenseTracker.Views.Pages.ReportsPageView"
+             x:DataType = "pages:ReportsPageViewModel"
              xmlns:design = "clr-namespace:ExpenseTracker.Design"
+             xmlns:pages = "using:ExpenseTracker.ViewModels.Pages"
              d:DataContext = "{x:Static design:DesignData.ReportsPageViewModel}">
 
     <!-- TODO: Implement Reports Page -->

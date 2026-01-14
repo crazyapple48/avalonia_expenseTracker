@@ -1,6 +1,8 @@
 using System;
 using ExpenseTracker.Bootstrap;
 using ExpenseTracker.ViewModels;
+using ExpenseTracker.ViewModels.Dialogs;
+using ExpenseTracker.ViewModels.Pages;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ExpenseTracker.Design;

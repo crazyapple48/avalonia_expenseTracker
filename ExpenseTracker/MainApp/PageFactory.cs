@@ -1,5 +1,6 @@
 using System;
 using ExpenseTracker.ViewModels;
+using ExpenseTracker.ViewModels.Base;
 
 namespace ExpenseTracker.MainApp;
 

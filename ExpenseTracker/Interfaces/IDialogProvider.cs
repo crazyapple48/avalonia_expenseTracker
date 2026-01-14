@@ -1,4 +1,5 @@
 using ExpenseTracker.ViewModels;
+using ExpenseTracker.ViewModels.Dialogs;
 
 namespace ExpenseTracker.Interfaces;
 
