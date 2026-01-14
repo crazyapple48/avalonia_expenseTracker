@@ -8,7 +8,7 @@
              x:Class = "ExpenseTracker.Views.Pages.ReportsPageView"
              x:DataType = "pages:ReportsPageViewModel"
              xmlns:design = "clr-namespace:ExpenseTracker.Design"
-             xmlns:pages = "clr-namespace:ExpenseTracker.ViewModels.Pages"
+             xmlns:pages = "using:ExpenseTracker.ViewModels.Pages"
              d:DataContext = "{x:Static design:DesignData.ReportsPageViewModel}">
 
     <!-- TODO: Implement Reports Page -->
