@@ -1,102 +1,173 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:ExpenseTracker.ViewModels"
-             mc:Ignorable="d"
-             MinWidth="400" MinHeight="200"
-             x:Class="ExpenseTracker.Views.SubmitExpenseDialogView"
-             x:DataType="vm:SubmitExpenseDialogViewModel"
-             Foreground="{DynamicResource SecondaryBackground}"
-             Background="Transparent"
-             xmlns:design="clr-namespace:ExpenseTracker.Design"
-             d:DataContext="{x:Static design:DesignData.SubmitExpenseDialogViewModel}">
+<UserControl xmlns = "https://github.com/avaloniaui"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d = "http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm = "clr-namespace:ExpenseTracker.ViewModels"
+             mc:Ignorable = "d"
+             MinWidth = "400"
+             MinHeight = "200"
+             x:Class = "ExpenseTracker.Views.SubmitExpenseDialogView"
+             x:DataType = "vm:SubmitExpenseDialogViewModel"
+             Foreground = "{DynamicResource SecondaryBackground}"
+             Background = "Transparent"
+             xmlns:design = "clr-namespace:ExpenseTracker.Design"
+             d:DataContext = "{x:Static design:DesignData.SubmitExpenseDialogViewModel}">
 
     <Interaction.Behaviors>
         <LoadedTrigger>
-            <InvokeCommandAction Command="{Binding InitializeCommand}"></InvokeCommandAction>
+            <InvokeCommandAction Command = "{Binding InitializeCommand}">
+            </InvokeCommandAction>
         </LoadedTrigger>
     </Interaction.Behaviors>
 
-    <Border Background="{DynamicResource PrimaryForeground}"
-            CornerRadius="20"
-            ClipToBounds="True" Margin="5"
-            BorderBrush="{DynamicResource SecondaryBackground}"
-            BorderThickness="3">
+    <Border Background = "{DynamicResource PrimaryForeground}"
+            CornerRadius = "20"
+            ClipToBounds = "True"
+            Margin = "5"
+            BorderBrush = "{DynamicResource SecondaryBackground}"
+            BorderThickness = "3">
 
         <Border.Effect>
-            <DropShadowEffect BlurRadius="15"
-                              Color="{DynamicResource PrimaryBrown}"
-                              Opacity="0.6" />
+            <DropShadowEffect BlurRadius = "15"
+                              Color = "{DynamicResource PrimaryBrown}"
+                              Opacity = "0.6" />
         </Border.Effect>
 
-        <Grid RowDefinitions="75, *, 50" RowSpacing="10">
+        <Grid RowDefinitions = "75, *, 50"
+              RowSpacing = "10">
 
             <!-- Title -->
-            <Border Grid.Row="0" Background="{DynamicResource PrimaryBackground}"
-                    CornerRadius="20 20 0 0"
-                    Classes="header">
+            <Border Grid.Row = "0"
+                    Background = "{DynamicResource PrimaryBackground}"
+                    CornerRadius = "20 20 0 0"
+                    Classes = "header">
 
-                <Label Classes="h2"
-                       Content="{Binding Title}"
-                       HorizontalAlignment="Center"
-                       Padding="0 10">
+                <Label Classes = "h2"
+                       Content = "{Binding Title}"
+                       HorizontalAlignment = "Center"
+                       Padding = "0 10">
                 </Label>
             </Border>
 
             <!-- Main Content -->
 
-            <ScrollViewer Grid.Row="1">
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto"
-                      ColumnDefinitions="Auto, *"
-                      RowSpacing="8"
-                      ColumnSpacing="5">
+            <ScrollViewer Grid.Row = "1">
+                <Grid RowDefinitions = "Auto, Auto, Auto, Auto, Auto, Auto, Auto"
+                      ColumnDefinitions = "Auto, *, Auto"
+                      RowSpacing = "8"
+                      ColumnSpacing = "5">
+
+                    <!-- "Make Default?" Checkbox -->
+                    <StackPanel Grid.Row = "0"
+                                Grid.Column = "0"
+                                Grid.ColumnSpan = "3"
+                                Orientation = "Horizontal"
+                                Spacing = "15"
+                                Margin = "0 0 0 15"
+                                IsVisible = "{Binding !IsShortcut}">
+                        <Label Content = "Make Shortcut?"
+                               Classes = "fieldLabel" />
+                        <CheckBox IsChecked = "{Binding CanCreateShortcut}" />
+                    </StackPanel>
+
 
                     <!-- Name Field -->
-                    <Label Grid.Row="0" Grid.Column="0" Content="Name:" Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Name}" IsEnabled="{Binding !IsShortcut}" />
+                    <Label Grid.Row = "1"
+                           Grid.Column = "0"
+                           Content = "Name:"
+                           Classes = "fieldLabel" />
+                    <TextBox Grid.Column = "1"
+                             Grid.Row = "1"
+                             Grid.ColumnSpan = "2"
+                             Text = "{Binding Name}"
+                             IsEnabled = "{Binding !IsShortcut}" />
 
                     <!-- Location Field -->
-                    <Label Grid.Row="1" Grid.Column="0" Content="Location: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Location}"
-                             IsEnabled="{Binding DefaultLocation, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <Label Grid.Row = "2"
+                           Grid.Column = "0"
+                           Content = "Location: "
+                           Classes = "fieldLabel" />
+                    <TextBox Grid.Column = "1"
+                             Grid.Row = "2"
+                             Text = "{Binding Location}"
+                             IsEnabled = "{Binding DefaultLocation, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <CheckBox Grid.Row = "2"
+                              Grid.Column = "2"
+                              IsVisible = "{Binding CanCreateShortcut}"
+                              IsChecked = "{Binding IsLocationDefault}" />
 
                     <!-- Reason Field -->
-                    <Label Grid.Row="2" Grid.Column="0" Content="Reason: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Reason}"
-                             IsEnabled="{Binding DefaultReason, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <Label Grid.Row = "3"
+                           Grid.Column = "0"
+                           Content = "Reason: "
+                           Classes = "fieldLabel" />
+                    <TextBox Grid.Column = "1"
+                             Grid.Row = "3"
+                             Text = "{Binding Reason}"
+                             IsEnabled = "{Binding DefaultReason, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <CheckBox Grid.Row = "3"
+                              Grid.Column = "2"
+                              IsVisible = "{Binding CanCreateShortcut}"
+                              IsChecked = "{Binding IsReasonDefault}" />
 
                     <!-- Amount Field -->
-                    <Label Grid.Row="3" Grid.Column="0" Content="Amount: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Amount}"
-                             IsEnabled="{Binding DefaultAmount, Converter={StaticResource AmountToBoolConverter}}" />
-
+                    <Label Grid.Row = "4"
+                           Grid.Column = "0"
+                           Content = "Amount: "
+                           Classes = "fieldLabel" />
+                    <TextBox Grid.Column = "1"
+                             Grid.Row = "4"
+                             Text = "{Binding Amount}"
+                             IsEnabled = "{Binding DefaultAmount, Converter={StaticResource AmountToBoolConverter}}" />
+                    <CheckBox Grid.Row = "4"
+                              Grid.Column = "2"
+                              IsVisible = "{Binding CanCreateShortcut}"
+                              IsChecked = "{Binding IsAmountDefault}" />
 
                     <!-- Payment Method Field -->
-                    <Label Grid.Row="4" Grid.Column="0" Content="Payment Method: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding PaymentMethod}"
-                             IsEnabled="{Binding DefaultPaymentMethod, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <Label Grid.Row = "5"
+                           Grid.Column = "0"
+                           Content = "Payment Method: "
+                           Classes = "fieldLabel" />
+                    <TextBox Grid.Column = "1"
+                             Grid.Row = "5"
+                             Text = "{Binding PaymentMethod}"
+                             IsEnabled = "{Binding DefaultPaymentMethod, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <CheckBox Grid.Row = "5"
+                              Grid.Column = "2"
+                              IsVisible = "{Binding CanCreateShortcut}"
+                              IsChecked = "{Binding IsPaymentMethodDefault}" />
 
                     <!-- NickName Field -->
-                    <Label Grid.Row="5" Grid.Column="0" Content="NickName: " Classes="fieldLabel" />
-                    <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NickName}"
-                             IsEnabled="{Binding DefaultNickName, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+                    <Label Grid.Row = "6"
+                           Grid.Column = "0"
+                           Content = "NickName: "
+                           Classes = "fieldLabel" />
+                    <TextBox Grid.Column = "1"
+                             Grid.Row = "6"
+                             Grid.ColumnSpan = "2"
+                             Text = "{Binding NickName}"
+                             IsEnabled = "{Binding DefaultNickName, Converter={StaticResource ShortcutValuesToBoolConverter}}" />
+
                 </Grid>
 
             </ScrollViewer>
 
             <!-- Buttons -->
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+            <StackPanel Grid.Row = "2"
+                        Orientation = "Horizontal"
+                        HorizontalAlignment = "Center"
+                        Spacing = "20">
 
-                <Button Classes="danger"
-                        Content="{Binding CancelText}"
-                        HorizontalAlignment="Center"
-                        Command="{Binding CancelCommand}" />
+                <Button Classes = "danger"
+                        Content = "{Binding CancelText}"
+                        HorizontalAlignment = "Center"
+                        Command = "{Binding CancelCommand}" />
 
-                <Button Classes="success"
-                        Content="{Binding SubmitText}"
-                        HorizontalAlignment="Center"
-                        Command="{Binding SubmitCommand}" />
+                <Button Classes = "success"
+                        Content = "{Binding SubmitText}"
+                        HorizontalAlignment = "Center"
+                        Command = "{Binding SubmitCommand}" />
 
             </StackPanel>
 

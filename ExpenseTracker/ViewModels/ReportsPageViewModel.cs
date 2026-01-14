@@ -5,6 +5,7 @@ namespace ExpenseTracker.ViewModels;
 
 public partial class ReportsPageViewModel() : PageViewModel(ApplicationPageNames.Reports)
 {
-    [ObservableProperty]
-    private string _reportsMessage = "Reports Page!";
+    // TODO: Implement Reports Page
+
+    [ObservableProperty] private string _reportsMessage = "This Page is not implemented yet.";
 }

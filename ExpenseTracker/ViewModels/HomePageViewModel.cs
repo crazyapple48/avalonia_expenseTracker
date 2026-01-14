@@ -33,20 +33,28 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
     }
 
     [RelayCommand]
-    public async Task CreateExpenseAsync(SelectedShortcutViewModel? selectedShortcut = null)
+    private async Task ShowCreateExpenseDialogAsync(SelectedShortcutViewModel? selectedShortcut = null)
     {
-        if (selectedShortcut is null) return;
-        var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel
+        if (selectedShortcut is null)
         {
-            Name = selectedShortcut.Name,
-            DefaultAmount = selectedShortcut.Amount,
-            DefaultLocation = selectedShortcut.Location,
-            DefaultReason = selectedShortcut.Reason,
-            DefaultNickName = selectedShortcut.NickName,
-            DefaultPaymentMethod = selectedShortcut.PaymentMethod,
-            IsShortcut = true,
-        };
+            var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel();
 
-        await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
+            await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
+        }
+        else
+        {
+            var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel
+            {
+                Name = selectedShortcut.Name,
+                DefaultAmount = selectedShortcut.Amount,
+                DefaultLocation = selectedShortcut.Location,
+                DefaultReason = selectedShortcut.Reason,
+                DefaultNickName = selectedShortcut.NickName,
+                DefaultPaymentMethod = selectedShortcut.PaymentMethod,
+                IsShortcut = true,
+            };
+
+            await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
+        }
     }
 }

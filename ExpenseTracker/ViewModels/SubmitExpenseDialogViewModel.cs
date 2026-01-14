@@ -28,6 +28,13 @@ public partial class SubmitExpenseDialogViewModel : DialogViewModel
     [ObservableProperty] private bool _submitting;
 
     [ObservableProperty] private bool _isShortcut;
+    [ObservableProperty] private bool _canCreateShortcut;
+
+    [ObservableProperty] private bool _isLocationDefault;
+    [ObservableProperty] private bool _isAmountDefault;
+    [ObservableProperty] private bool _isNickNameDefault;
+    [ObservableProperty] private bool _isReasonDefault;
+    [ObservableProperty] private bool _isPaymentMethodDefault;
 
 
     [RelayCommand]
