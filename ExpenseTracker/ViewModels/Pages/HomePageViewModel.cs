@@ -2,8 +2,8 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExpenseTracker.DataStorage.DataModels;
 using ExpenseTracker.MainApp;
-using ExpenseTracker.Models;
 using ExpenseTracker.Services;
 using ExpenseTracker.ViewModels.Base;
 using ExpenseTracker.ViewModels.Dialogs;
@@ -15,9 +15,9 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
 {
     [ObservableProperty] private string _welcomeMessage = "Welcome to Home Page!";
 
-    [ObservableProperty] private ObservableCollection<ShortcutModel> _shortcuts =
+    [ObservableProperty] private ObservableCollection<ShortcutDataModel> _shortcuts =
     [
-        new ShortcutModel
+        new ShortcutDataModel
         {
             Name = "Gas", Amount = 54.75,
             Location = "Home",
@@ -25,17 +25,17 @@ public partial class HomePageViewModel(MainViewModel mainViewModel, DialogServic
             NickName = "Jane",
             PaymentMethod = "Cash"
         },
-        new ShortcutModel { Name = "Soda" }
+        new ShortcutDataModel { Name = "Soda" }
     ];
 
-    [ObservableProperty] private ShortcutModel? _selectedShortcut;
+    [ObservableProperty] private ShortcutDataModel? _selectedShortcut;
 
     public HomePageViewModel() : this(new MainViewModel(), new DialogService())
     {
     }
 
     [RelayCommand]
-    private async Task ShowCreateExpenseDialogAsync(ShortcutModel? selectedShortcut = null)
+    private async Task ShowCreateExpenseDialogAsync(ShortcutDataModel? selectedShortcut = null)
     {
         if (selectedShortcut is null)
         {
