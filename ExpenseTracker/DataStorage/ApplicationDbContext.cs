@@ -13,7 +13,7 @@ public class ApplicationDbContext : DbContext
     {
         // Ensure folder exists
         var storagePath =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Expense Tracker");
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Expense Tracker");
         Directory.CreateDirectory(storagePath);
 
         optionsBuilder.UseSqlite(
