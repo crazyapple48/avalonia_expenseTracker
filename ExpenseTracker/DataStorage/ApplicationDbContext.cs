@@ -18,14 +18,23 @@ public class ApplicationDbContext : DbContext
         {
             storagePath = @"D:\data\ExpenseTracker";
         }
+        else if (OperatingSystem.IsAndroid())
+        {
+            storagePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ExpenseTracker");
+        }
         else
         {
             // Debugging on Linux
             storagePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                 "ExpenseTracker");
         }
+
 #else
         // production paths
+        if (OperatingSystem.IsAndroid())
+        {
+            storagePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "ExpenseTracker");
+        }
         storagePath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ExpenseTracker");
 #endif

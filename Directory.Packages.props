@@ -19,7 +19,7 @@
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.2" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.2" />
-    <PackageVersion Include="SkiaSharp.NativeAssets.Android" Version="3.119.2-preview.1" />
+    <PackageVersion Include="SkiaSharp.NativeAssets.Android" Version="2.88.9" />
     <PackageVersion Include="Svg.Controls.Skia.Avalonia" Version="11.3.9.2" />
     <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.1" />
     <PackageVersion Include="Xaml.Behaviors.Avalonia" Version="11.3.9.3" />
