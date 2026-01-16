@@ -22,12 +22,12 @@ public class ApplicationDbContext : DbContext
         {
             // Debugging on Linux
             storagePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "Expense Tracker");
+                "ExpenseTracker");
         }
 #else
         // production paths
         storagePath =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Expense Tracker");
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ExpenseTracker");
 #endif
         Directory.CreateDirectory(storagePath);
 
