@@ -19,7 +19,13 @@ public class DatabaseService(ApplicationDbContext context) : IDisposable
 
     public List<ShortcutDataModel>? GetShortcuts()
     {
-        return _context.Shortcuts.ToList();
+        var shortcuts = _context.Shortcuts.ToList();
+
+        if (shortcuts.Count == 0) _context.Shortcuts.Add(new ShortcutDataModel { Name = "Default" });
+
+        _context.SaveChanges();
+
+        return shortcuts;
     }
 
     public void CreateShortcut(ShortcutDataModel? shortcut)

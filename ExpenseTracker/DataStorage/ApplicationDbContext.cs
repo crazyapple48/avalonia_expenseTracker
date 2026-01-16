@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Avalonia;
 using ExpenseTracker.DataStorage.DataModels;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,19 +12,33 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        // Ensure folder exists
-        var storagePath =
+        string storagePath;
+#if DEBUG
+        if (OperatingSystem.IsWindows())
+        {
+            storagePath = @"D:\data\ExpenseTracker";
+        }
+        else
+        {
+            // Debugging on Linux
+            storagePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "Expense Tracker");
+        }
+#else
+        // production paths
+        storagePath =
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Expense Tracker");
+#endif
         Directory.CreateDirectory(storagePath);
 
         optionsBuilder.UseSqlite(
-            $"Data Source={Path.Combine(storagePath, "settings.db")}");
+            $"Data Source={Path.Combine(storagePath, "data.db")}");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<ShortcutDataModel>().HasKey(f => f.Name);
+        modelBuilder.Entity<ShortcutDataModel>().HasKey(f => f.Id);
     }
 }

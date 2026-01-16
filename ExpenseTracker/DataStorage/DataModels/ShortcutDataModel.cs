@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,7 +9,7 @@ public class ShortcutDataModel
 {
     #region Properties
 
-    public int Id { get; init; }
+    [MaxLength(255)] public string Id { get; set; }
 
     [MaxLength(255)] public string Name { get; set; } = "";
 
