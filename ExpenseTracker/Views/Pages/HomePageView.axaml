@@ -14,7 +14,7 @@
 
     <Interaction.Behaviors>
         <LoadedTrigger>
-            <InvokeCommandAction Command="{Binding InitializeAsyncCommand}"></InvokeCommandAction>
+            <InvokeCommandAction Command="{Binding InitializeCommand}"></InvokeCommandAction>
         </LoadedTrigger>
     </Interaction.Behaviors>
 
