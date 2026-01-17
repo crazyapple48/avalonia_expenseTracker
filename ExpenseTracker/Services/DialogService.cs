@@ -7,7 +7,7 @@ namespace ExpenseTracker.Services;
 
 public class DialogService
 {
-    public async Task ShowDialog<THost, TDialogViewModel>(THost host, TDialogViewModel viewModel)
+    public async Task<bool> ShowDialog<THost, TDialogViewModel>(THost host, TDialogViewModel viewModel)
         where TDialogViewModel : DialogViewModel
         where THost : IDialogProvider
     {
@@ -17,6 +17,6 @@ public class DialogService
         viewModel.Show();
 
         // Wait for the dialog to close
-        await viewModel.WaitAsync();
+        return await viewModel.WaitAsync();
     }
 }

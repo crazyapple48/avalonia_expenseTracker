@@ -1,9 +1,9 @@
-<Application xmlns = "https://github.com/avaloniaui"
-             xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local = "using:ExpenseTracker"
-             xmlns:vc = "clr-namespace:ExpenseTracker.ValueConverters"
-             x:Class = "ExpenseTracker.App"
-             RequestedThemeVariant = "Default">
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:ExpenseTracker"
+             xmlns:vc="clr-namespace:ExpenseTracker.ValueConverters"
+             x:Class="ExpenseTracker.App"
+             RequestedThemeVariant="Default">
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
@@ -12,50 +12,51 @@
 
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source = "Styles/General.axaml"></StyleInclude>
-        <StyleInclude Source = "Styles/Labels.axaml"></StyleInclude>
-        <StyleInclude Source = "Styles/ListBox.axaml"></StyleInclude>
-        <StyleInclude Source = "Styles/TextBox.axaml"></StyleInclude>
+        <StyleInclude Source="Styles/General.axaml"></StyleInclude>
+        <StyleInclude Source="Styles/Labels.axaml"></StyleInclude>
+        <StyleInclude Source="Styles/ListBox.axaml"></StyleInclude>
+        <StyleInclude Source="Styles/TextBox.axaml"></StyleInclude>
     </Application.Styles>
 
     <Application.Resources>
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source = "/Controls/IconButton.axaml"></MergeResourceInclude>
-                <MergeResourceInclude Source = "/Controls/Button.axaml"></MergeResourceInclude>
-                <MergeResourceInclude Source = "Controls/CheckBox.axaml"></MergeResourceInclude>
+                <MergeResourceInclude Source="/Controls/IconButton.axaml"></MergeResourceInclude>
+                <MergeResourceInclude Source="/Controls/Button.axaml"></MergeResourceInclude>
+                <MergeResourceInclude Source="Controls/CheckBox.axaml"></MergeResourceInclude>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
-        <vc:ShortcutValuesToBoolConverter x:Key = "ShortcutValuesToBoolConverter"></vc:ShortcutValuesToBoolConverter>
-        <vc:AmountToBoolConverter x:Key = "AmountToBoolConverter"></vc:AmountToBoolConverter>
+        <vc:ShortcutValuesToBoolConverter x:Key="ShortcutValuesToBoolConverter"></vc:ShortcutValuesToBoolConverter>
+        <vc:AmountToBoolConverter x:Key="AmountToBoolConverter"></vc:AmountToBoolConverter>
+        <vc:ListValuesToBoolConverter x:Key="ListValuesToBoolConverter"></vc:ListValuesToBoolConverter>
 
-        <Color x:Key = "PrimaryBrown">#823823</Color>
+        <Color x:Key="PrimaryBrown">#823823</Color>
 
-        <SolidColorBrush x:Key = "PrimaryForeground">#FAEEEB</SolidColorBrush>
-        <SolidColorBrush x:Key = "SecondaryForeground">#472217</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryForeground">#FAEEEB</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryForeground">#472217</SolidColorBrush>
 
-        <SolidColorBrush x:Key = "DisabledForeground">#84726C</SolidColorBrush>
+        <SolidColorBrush x:Key="DisabledForeground">#84726C</SolidColorBrush>
 
 
-        <SolidColorBrush x:Key = "PrimaryBackground"
-                         Color = "{DynamicResource PrimaryBrown}" />
-        <SolidColorBrush x:Key = "SecondaryBackground">#F0D0C7</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryBackground"
+                         Color="{DynamicResource PrimaryBrown}" />
+        <SolidColorBrush x:Key="SecondaryBackground">#F0D0C7</SolidColorBrush>
 
-        <SolidColorBrush x:Key = "PrimaryHoverBackground">#E6B1A2</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryHoverBackground">#E6B1A2</SolidColorBrush>
 
-        <SolidColorBrush x:Key = "AlertPrimaryBackground">#672382</SolidColorBrush>
-        <SolidColorBrush x:Key = "AlertClickedBackground">#E4C7F0</SolidColorBrush>
+        <SolidColorBrush x:Key="AlertPrimaryBackground">#672382</SolidColorBrush>
+        <SolidColorBrush x:Key="AlertClickedBackground">#E4C7F0</SolidColorBrush>
 
-        <SolidColorBrush x:Key = "DangerPrimaryBackground">#D13C11</SolidColorBrush>
-        <SolidColorBrush x:Key = "DangerClickedBackground">#FACABD</SolidColorBrush>
+        <SolidColorBrush x:Key="DangerPrimaryBackground">#D13C11</SolidColorBrush>
+        <SolidColorBrush x:Key="DangerClickedBackground">#FACABD</SolidColorBrush>
 
-        <SolidColorBrush x:Key = "SuccessPrimaryBackground">#3E8223</SolidColorBrush>
-        <SolidColorBrush x:Key = "SuccessClickedBackground">#D2F0C7</SolidColorBrush>
+        <SolidColorBrush x:Key="SuccessPrimaryBackground">#3E8223</SolidColorBrush>
+        <SolidColorBrush x:Key="SuccessClickedBackground">#D2F0C7</SolidColorBrush>
 
-        <FontFamily x:Key = "Phosphor">/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
-        <FontFamily x:Key = "PhosphorFill">/Assets/Fonts/Phosphor.ttf#Phosphor-Fill</FontFamily>
+        <FontFamily x:Key="Phosphor">/Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+        <FontFamily x:Key="PhosphorFill">/Assets/Fonts/Phosphor.ttf#Phosphor-Fill</FontFamily>
 
     </Application.Resources>
 </Application>

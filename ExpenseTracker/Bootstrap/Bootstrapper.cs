@@ -1,4 +1,5 @@
 using System;
+using ExpenseTracker.DataStorage;
 using ExpenseTracker.MainApp;
 using ExpenseTracker.Services;
 using ExpenseTracker.ViewModels;
@@ -32,5 +33,11 @@ public static class Bootstrapper
         collection.AddTransient<HomePageViewModel>();
         collection.AddTransient<ReportsPageViewModel>();
         collection.AddTransient<SubmitExpenseDialogViewModel>();
+        
+        // Database Stuff
+        collection.AddTransient<ApplicationDbContext>();
+        collection.AddTransient<DatabaseService>();
+        collection.AddSingleton<Func<DatabaseService>>(x => x.GetRequiredService<DatabaseService>);
+        collection.AddSingleton<DatabaseFactory>();
     }
 }

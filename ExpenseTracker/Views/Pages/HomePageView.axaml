@@ -1,49 +1,59 @@
-<UserControl xmlns = "https://github.com/avaloniaui"
-             xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d = "http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable = "d"
-             d:DesignWidth = "412"
-             d:DesignHeight = "765"
-             Background = "{DynamicResource PrimaryForeground}"
-             x:Class = "ExpenseTracker.Views.Pages.HomePageView"
-             x:DataType = "pages:HomePageViewModel"
-             xmlns:design = "clr-namespace:ExpenseTracker.Design"
-             xmlns:pages = "clr-namespace:ExpenseTracker.ViewModels.Pages"
-             d:DataContext = "{x:Static design:DesignData.HomePageViewModel}">
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="412"
+             d:DesignHeight="765"
+             Background="{DynamicResource PrimaryForeground}"
+             x:Class="ExpenseTracker.Views.Pages.HomePageView"
+             x:DataType="pages:HomePageViewModel"
+             xmlns:design="clr-namespace:ExpenseTracker.Design"
+             xmlns:pages="clr-namespace:ExpenseTracker.ViewModels.Pages"
+             d:DataContext="{x:Static design:DesignData.HomePageViewModel}">
 
-    <Grid RowDefinitions = "*, Auto"
-          RowSpacing = "10">
+    <Interaction.Behaviors>
+        <LoadedTrigger>
+            <InvokeCommandAction Command="{Binding InitializeCommand}"></InvokeCommandAction>
+        </LoadedTrigger>
+    </Interaction.Behaviors>
+
+    <Grid RowDefinitions="*, Auto"
+          RowSpacing="10">
 
         <!-- Shortcut List -->
-        <ListBox Grid.Row = "0"
-                 ItemsSource = "{Binding Shortcuts}"
-                 SelectedItem = "{Binding SelectedShortcut}"
-                 Background = "Transparent"
-                 HorizontalAlignment = "Center">
+        <Label Grid.Row="0" IsVisible="{Binding IsShortcutsEmpty}"
+               Content="Click Button Below to Create Shortcut" />
+
+        <ListBox Grid.Row="0"
+                 IsVisible="{Binding !IsShortcutsEmpty}"
+                 ItemsSource="{Binding Shortcuts}"
+                 SelectedItem="{Binding SelectedShortcut}"
+                 Background="Transparent"
+                 HorizontalAlignment="Center">
 
             <Interaction.Behaviors>
-                <ExecuteCommandOnTappedBehavior Command = "{Binding ShowCreateExpenseDialogCommand}"
-                                                CommandParameter = "{Binding SelectedShortcut}" />
+                <ExecuteCommandOnTappedBehavior Command="{Binding ShowCreateExpenseDialogCommand}"
+                                                CommandParameter="{Binding SelectedShortcut}" />
             </Interaction.Behaviors>
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content = "{Binding Name}" />
+                    <Label Content="{Binding Name}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
         <!-- New Expense Button -->
-        <Button Grid.Row = "1"
-                HorizontalAlignment = "Center"
-                Classes = "subtle"
-                Height = "55"
-                Margin = "0 0 0 10"
-                Command = "{Binding ShowCreateExpenseDialogCommand}">
-            <Image Source = "{SvgImage /Assets/plus.svg}"
-                   Width = "30"
-                   Height = "30">
+        <Button Grid.Row="1"
+                HorizontalAlignment="Center"
+                Classes="subtle"
+                Height="55"
+                Margin="0 0 0 10"
+                Command="{Binding ShowCreateExpenseDialogCommand}">
+            <Image Source="{SvgImage /Assets/plus.svg}"
+                   Width="30"
+                   Height="30">
             </Image>
         </Button>
     </Grid>
