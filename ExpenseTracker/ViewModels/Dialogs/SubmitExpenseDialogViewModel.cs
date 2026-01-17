@@ -35,7 +35,6 @@ public partial class SubmitExpenseDialogViewModel(DatabaseFactory factory) : Dia
 
     [ObservableProperty] private bool _isLocationDefault;
     [ObservableProperty] private bool _isAmountDefault;
-    [ObservableProperty] private bool _isNickNameDefault;
     [ObservableProperty] private bool _isReasonDefault;
     [ObservableProperty] private bool _isPaymentMethodDefault;
 
@@ -51,11 +50,11 @@ public partial class SubmitExpenseDialogViewModel(DatabaseFactory factory) : Dia
             var result = context.CreateShortcut(new ShortcutDataModel
             {
                 Name = Name,
-                Location = Location,
-                Amount = Amount,
-                NickName = NickName,
-                Reason = Reason,
-                PaymentMethod = PaymentMethod
+                Location = IsLocationDefault ? Location : null,
+                Amount = IsAmountDefault ? Amount : null,
+                NickName = IsPaymentMethodDefault ? NickName : null,
+                Reason = IsReasonDefault ? Reason : null,
+                PaymentMethod = IsPaymentMethodDefault ? PaymentMethod : null
             });
 
             if (!result)
