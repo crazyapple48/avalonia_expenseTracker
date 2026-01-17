@@ -10,9 +10,11 @@ public partial class DialogViewModel : ViewModelBase
 
     protected TaskCompletionSource closeTask = new TaskCompletionSource();
 
-    public async Task WaitAsync()
+    public async Task<bool> WaitAsync()
     {
         await closeTask.Task;
+
+        return closeTask.Task.IsCompletedSuccessfully;
     }
 
     public void Show()
@@ -22,10 +24,10 @@ public partial class DialogViewModel : ViewModelBase
         IsDialogOpen = true;
     }
 
-    public void Close()
+    public bool Close()
     {
         IsDialogOpen = false;
 
-        closeTask.TrySetResult();
+        return closeTask.TrySetResult();
     }
 }

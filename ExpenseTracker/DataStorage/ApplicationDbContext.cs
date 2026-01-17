@@ -48,6 +48,6 @@ public class ApplicationDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<ShortcutDataModel>().HasKey(f => f.Id);
+        modelBuilder.Entity<ShortcutDataModel>().Property(f => f.Id).UseAutoincrement();
     }
 }

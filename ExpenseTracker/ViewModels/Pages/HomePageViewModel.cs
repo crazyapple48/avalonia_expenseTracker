@@ -20,22 +20,20 @@ public partial class HomePageViewModel(
 {
     [ObservableProperty] private string _welcomeMessage = "Welcome to Home Page!";
 
+    public required DatabaseService? DbContext;
+
     [ObservableProperty] private ObservableCollection<ShortcutViewModel>? _shortcuts;
+
+    [ObservableProperty] private bool _isShortcutsEmpty;
 
     [ObservableProperty] private ShortcutViewModel? _selectedShortcut;
 
     [RelayCommand]
     private void Initialize()
     {
-        var dbContext = databaseFactory.GetDatabaseService();
+        DbContext = databaseFactory.GetDatabaseService();
 
-        var shortcuts = dbContext.GetShortcuts()?.Select(f => new ShortcutViewModel
-        {
-            Name = f.Name, Id = f.Id, Amount = f.Amount, Location = f.Location, NickName = f.NickName,
-            PaymentMethod = f.PaymentMethod, Reason = f.Reason
-        }).OrderBy(x => x.Name).ToList();
-        if (shortcuts != null)
-            Shortcuts = new ObservableCollection<ShortcutViewModel>(shortcuts);
+        FetchShortcuts();
     }
 
     [RelayCommand]
@@ -43,13 +41,15 @@ public partial class HomePageViewModel(
     {
         if (selectedShortcut is null)
         {
-            var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel();
+            var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel(databaseFactory);
 
-            await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
+            var result = await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
+
+            if (result) Initialize();
         }
         else
         {
-            var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel
+            var submitExpenseDialogViewModel = new SubmitExpenseDialogViewModel(databaseFactory)
             {
                 Name = selectedShortcut.Name,
                 DefaultAmount = selectedShortcut.Amount,
@@ -62,5 +62,19 @@ public partial class HomePageViewModel(
 
             await dialogService.ShowDialog(mainViewModel, submitExpenseDialogViewModel);
         }
+    }
+
+    private void FetchShortcuts()
+    {
+        var shortcuts = DbContext?.GetShortcuts()?.Select(f => new ShortcutViewModel
+        {
+            Name = f.Name, Id = f.Id, Amount = f.Amount, Location = f.Location, NickName = f.NickName,
+            PaymentMethod = f.PaymentMethod, Reason = f.Reason
+        }).OrderBy(x => x.Name).ToList();
+
+        if (shortcuts == null) return;
+
+        IsShortcutsEmpty = shortcuts.Count == 0;
+        Shortcuts = new ObservableCollection<ShortcutViewModel>(shortcuts);
     }
 }

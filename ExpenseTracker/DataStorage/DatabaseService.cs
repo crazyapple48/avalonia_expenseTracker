@@ -24,9 +24,13 @@ public class DatabaseService(ApplicationDbContext context) : IDisposable
         return shortcuts.Count == 0 ? null : shortcuts;
     }
 
-    public void CreateShortcut(ShortcutDataModel? shortcut)
+    public bool CreateShortcut(ShortcutDataModel? shortcut)
     {
-        if (shortcut is null) return;
+        if (shortcut is null) return false;
         _context.Shortcuts.Add(shortcut);
+
+        var result = _context.SaveChanges();
+
+        return result > 0;
     }
 }

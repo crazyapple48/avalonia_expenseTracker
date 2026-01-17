@@ -2,10 +2,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExpenseTracker.DataStorage;
+using ExpenseTracker.DataStorage.DataModels;
 
 namespace ExpenseTracker.ViewModels.Dialogs;
 
-public partial class SubmitExpenseDialogViewModel : DialogViewModel
+public partial class SubmitExpenseDialogViewModel(DatabaseFactory factory) : DialogViewModel
 {
     [ObservableProperty] private string _name = "";
     [ObservableProperty] private string? _location;
@@ -26,6 +28,7 @@ public partial class SubmitExpenseDialogViewModel : DialogViewModel
 
     [ObservableProperty] private bool _submitSucceeded;
     [ObservableProperty] private bool _submitting;
+    [ObservableProperty] private string? _error;
 
     [ObservableProperty] private bool _isShortcut;
     [ObservableProperty] private bool _canCreateShortcut;
@@ -41,7 +44,27 @@ public partial class SubmitExpenseDialogViewModel : DialogViewModel
     private void Submit()
     {
         Submitting = true;
-        Thread.Sleep(1000);
+        var context = factory.GetDatabaseService();
+
+        if (CanCreateShortcut)
+        {
+            var result = context.CreateShortcut(new ShortcutDataModel
+            {
+                Name = Name,
+                Location = Location,
+                Amount = Amount,
+                NickName = NickName,
+                Reason = Reason,
+                PaymentMethod = PaymentMethod
+            });
+
+            if (!result)
+            {
+                Error = "Something went wrong submitting, please try again";
+                Submitting = false;
+                return;
+            }
+        }
 
         SubmitSucceeded = true;
         Submitting = false;

@@ -22,11 +22,11 @@
           RowSpacing="10">
 
         <!-- Shortcut List -->
-        <Label Grid.Row="0" IsVisible="{Binding !Shortcuts, Converter={StaticResource ListValuesToBoolConverter}}"
+        <Label Grid.Row="0" IsVisible="{Binding IsShortcutsEmpty}"
                Content="Click Button Below to Create Shortcut" />
 
         <ListBox Grid.Row="0"
-                 IsVisible="{Binding Shortcuts, Converter={StaticResource ListValuesToBoolConverter}}"
+                 IsVisible="{Binding !IsShortcutsEmpty}"
                  ItemsSource="{Binding Shortcuts}"
                  SelectedItem="{Binding SelectedShortcut}"
                  Background="Transparent"

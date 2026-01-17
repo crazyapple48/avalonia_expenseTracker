@@ -9,7 +9,7 @@ public class ShortcutDataModel
 {
     #region Properties
 
-    [MaxLength(255)] public string Id { get; set; }
+    public int Id { get; set; }
 
     [MaxLength(255)] public string Name { get; set; } = "";
 

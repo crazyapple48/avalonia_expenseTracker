@@ -7,7 +7,7 @@ public partial class ShortcutViewModel : ViewModelBase
 {
     #region Properties
 
-    [ObservableProperty] private string _id = "";
+    [ObservableProperty] private int _id;
 
     [ObservableProperty] private string _name = "";
 

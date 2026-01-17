@@ -57,7 +57,7 @@
                       RowSpacing = "8"
                       ColumnSpacing = "5">
 
-                    <!-- "Make Default?" Checkbox -->
+                    <!-- "Make Shortcut?" Checkbox -->
                     <StackPanel Grid.Row = "0"
                                 Grid.Column = "0"
                                 Grid.ColumnSpan = "3"
